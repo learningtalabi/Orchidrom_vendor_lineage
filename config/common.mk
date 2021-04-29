@@ -1,10 +1,17 @@
-# Allow vendor/extra to override any property by setting it first
+# This rom is based on Crdroid thanks to them orchidos is alive
+# Crdroid core vendors
 $(call inherit-product-if-exists, vendor/extra/product.mk)
 $(call inherit-product, vendor/lineage/config/crdroid.mk)
 $(call inherit-product, vendor/addons/config.mk)
 $(call inherit-product, external/moto/faceunlock/config.mk)
 
-PRODUCT_BRAND ?= crDroidAndroid
+# orchid os rom core third party vendors
+$(call inherit-product-if-exists, vendor/extra/product.mk)
+$(call inherit-product-if-exists, vendor/pixelgapps/pixel-gapps.mk)
+$(call inherit-product-if-exists, vendor/oplauncher/OPLauncher.mk)
+$(call inherit-product-if-exists, vendor/prebuilts/prebuilts.mk)
+$(call inherit-product-if-exists, vendor/aeonax/ANXCamera/anx-vendor.mk)
+PRODUCT_BRAND ?= orchdos
 
 PRODUCT_BUILD_PROP_OVERRIDES += BUILD_UTC_DATE=0
 
@@ -116,7 +123,6 @@ PRODUCT_PACKAGES += \
 PRODUCT_PACKAGES += \
     LineageParts \
     LineageSettingsProvider \
-    LineageSetupWizard \
     Updater
 
 # Extra tools in Lineage
@@ -198,8 +204,7 @@ PRODUCT_VERSION_MAJOR = 10
 PRODUCT_VERSION_MINOR = 0
 
 # Increase CR Version with each major release.
-CR_VERSION := 6.17
-
+CR_VERSION := 1.00
 LINEAGE_VERSION := crDroidAndroid-$(PRODUCT_VERSION_MAJOR).$(PRODUCT_VERSION_MINOR)-$(shell date +%Y%m%d)-$(LINEAGE_BUILD)-v$(CR_VERSION)
 LINEAGE_DISPLAY_VERSION := crDroidAndroid-$(PRODUCT_VERSION_MAJOR).$(PRODUCT_VERSION_MINOR)-$(LINEAGE_BUILD)-v$(CR_VERSION)
 
