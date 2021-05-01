@@ -7,10 +7,10 @@ $(call inherit-product, external/moto/faceunlock/config.mk)
 
 # orchid os rom core third party vendors
 $(call inherit-product-if-exists, vendor/extra/product.mk)
-$(call inherit-product-if-exists, vendor/pixelgapps/pixel-gapps.mk)
-$(call inherit-product-if-exists, vendor/oplauncher/OPLauncher.mk)
+$(call inherit-product-if-exists, vendor/gapps/config.mk)
 $(call inherit-product-if-exists, vendor/prebuilts/prebuilts.mk)
 $(call inherit-product-if-exists, vendor/aeonax/ANXCamera/anx-vendor.mk)
+
 PRODUCT_BRAND ?= orchdos
 
 PRODUCT_BUILD_PROP_OVERRIDES += BUILD_UTC_DATE=0
